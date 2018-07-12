@@ -39,7 +39,8 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 map <C-n> :NERDTreeToggle<CR>
 "autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-
+Plugin 'jnurmine/Zenburn'
+color zenburn
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -56,9 +57,6 @@ nnoremap <space> za
 
 au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
 
-Plugin 'jnurmine/Zenburn'
-colors zenburn
-
 Plugin 'pearofducks/ansible-vim'
 au BufRead,BufNewFile *.yml set filetype=yaml.ansible
 let g:ansible_unindent_after_newline = 1
@@ -74,6 +72,8 @@ syntax enable
 
 " show line numbers
 set number
+:map <F5> :set invnumber<CR> 
+:map <F6> :set invrelativenumber<CR> 
 
 " set tabs to have 4 spaces
 set ts=4
@@ -102,4 +102,12 @@ Plugin 'Valloric/YouCompleteMe'
 " The first line ensures that the auto-complete window goes away when you’re done with it, and the second defines a shortcut for goto definition. (space-g)
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" Install vim-plug with: curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+" call plug#begin('~/.vim/plugged')
+" Plug 'nightsense/snow'
+" Plug 'kaicataldo/material.vim'
+" call plug#end()
+
 
